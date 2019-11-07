@@ -3,8 +3,9 @@
 START=99
 
 start() {
+    ./root/shuvisco/shuvisco.config
     echo "Starting serveo service..."
-    /usr/sbin/autossh  -M 22 -y -R macielti:22:localhost:22 serveo.net < /dev/ptmx &
+    /usr/sbin/autossh  -M 22 -y -R $SERVEO:22:localhost:22 serveo.net < /dev/ptmx &
 }
 
 stop() {

@@ -1,4 +1,5 @@
-# Both 'ROUTER_ID' and POST_LOGS_URL need to be seted in the install script
+# Load configs
+./shuvisco.conf
 
 # Getting MAC address
 mac=$(cat /sys/class/net/eth0/address)
