@@ -7,3 +7,4 @@ O projeto Shuvisco trata-se da personalização do sistema de roteadores para qu
 > Caso ocorra a interrupção do serviço pela prestadora, a Prestadora deve descontar do total do plano o valor proporcional ao número de horas ou fração superior a 30 minutos.
 >  https://www.anatel.gov.br/consumidor/banda-larga/direitos/interrupcao-do-servico
 
+Os dados coletados também podem ser utilizados para realizar análises empíricas e comparações com a finalidade de eleger qual provedor oferece o melhor serviço (ou o menos pior).
