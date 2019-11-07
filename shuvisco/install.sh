@@ -7,6 +7,7 @@ echo ""
 # Script for instalation.
 
 # Instalando o autossh para utilizar com o Serveo:
+opkg update
 opkg install autossh
 # Mover o script de inicializacao do Serveo:
 mv /root/shuvisco/serveo /etc/init.d/serveo
