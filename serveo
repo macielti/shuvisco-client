@@ -1,0 +1,24 @@
+#!/bin/sh /etc/rc.common
+
+#TODO: Needed to be seted in the install script a SERVEO contant to hold the subdomain
+# of the specific client.
+
+START=99
+
+start() {
+    echo "Starting serveo service..."
+    /usr/sbin/autossh  -M 22 -y -R macielti:22:localhost:22 serveo.net < /dev/ptmx &
+}
+
+stop() {
+    echo "Stopping serveo service..."
+    pids="$(pgrep -f ameer)"
+    for pid in $pids; do
+        /bin/kill "$pid"
+    done
+}
+
+restart() {
+    stop
+    start
+}
