@@ -1,3 +1,9 @@
+
+echo ""
+echo "Shuvisco Instalador"
+echo ""
+
+### LOGIC ####
 # Script for instalation.
 
 # Flags
@@ -7,12 +13,10 @@ ROUTER_ID="<'_id' from the router document>"
 
 POST_LOGS_URL="<url for the 'logs' endpoint on the server>"
 
-
-
 # Instalando o autossh para utilizar com o Serveo:
 opkg install autossh
 # Mover o script de inicializacao do Serveo:
-mv serveo /etc/init.d/
+mv /root/shuvisco/serveo /etc/init.d/serveo
 # Permitindo execucao:
 chmod +x /etc/init.d/serveo
 # Habilitando o servico:
@@ -21,13 +25,15 @@ chmod +x /etc/init.d/serveo
 /etc/init.d/serveo start
 
 # Adicionando scripts ao crontab
-chmod +x tester.sh
-chmod +x send.sh
+chmod +x /root/shuvisco/tester.sh
+chmod +x /root/shuvisco/send.sh
 crontab -l > mycron
-echo "* * * * * /root/chuvisco/tester.sh" >> mycron
-echo "00 00 * * * /root/chuvisco/send.sh" >> mycron
+echo "* * * * * /root/shuvisco/tester.sh" >> mycron
+echo "00 00 * * * /root/shuvisco/send.sh" >> mycron
 crontab mycron
 rm mycron
+
+# sudo makeself --notemp shuvisco/ install.run "Extracting files..." ./install.sh
 
 exit 0
 
