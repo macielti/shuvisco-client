@@ -12,7 +12,12 @@ fi
 timestamp=$(date +%s)
 # Testing the connection
 ping 1.1.1.1 -c 1
-resultado=$?
-echo '$resultado; $timestamp' >> /root/shuvisco/log.csv
+if [ $? -ne 0 ]
+then
+    echo '1; $timestamp' >> /root/shuvisco/log.csv
+else
+    echo '0; $timestamp' >> /root/shuvisco/log.csv
+fi
 
 exit 0
+
