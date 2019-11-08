@@ -4,7 +4,7 @@
 # Getting MAC address
 mac=$(cat /sys/class/net/eth0/address)
 
-logs='$(cat log.csv)'
+logs="$(cat log.csv)"
 # Exceptions
 if [ $? -ne 0 ]
 then
@@ -12,7 +12,7 @@ then
 fi
 
 # Sending data to server
-curl -d 'router_id=$ROUTER_ID&mac=$mac&logs=$logs' -X POST $POST_LOGS_URL
+curl -d "router_id=$ROUTER_ID&mac=$mac&logs=$logs" -X POST $POST_LOGS_URL
 # Exceptions
 if [ $? -ne 0 ]
 then

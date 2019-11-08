@@ -4,7 +4,7 @@ antenna_ip=$(route -n | awk '{if($4=="UG")print $2}')
 ping $antenna_ip -c 1 -w 2
 if [ $? -ne 0 ]
 then
-    echo 'Antenna not connected.'
+    echo "Antenna not connected."
     exit 1
 fi
 
@@ -14,9 +14,9 @@ timestamp=$(date +%s)
 ping 1.1.1.1 -c 1
 if [ $? -ne 0 ]
 then
-    echo '1; $timestamp' >> /root/shuvisco/log.csv
+    echo "1,$timestamp" >> /root/shuvisco/log.csv
 else
-    echo '0; $timestamp' >> /root/shuvisco/log.csv
+    echo "0,$timestamp" >> /root/shuvisco/log.csv
 fi
 
 exit 0
