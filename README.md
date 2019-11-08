@@ -1,3 +1,5 @@
+![Banana](https://cdn.pixabay.com/photo/2019/04/03/04/47/rainbow-4099502_960_720.jpg)
+
 # Projeto Shuvisco
 
 É de conhecimento público que os níveis de qualidade dos serviços de acesso a internet fixa disponíveis em cidades pequenas do nordeste do Brasil não refletem o valor que é cobrado a seus consumidores, e este problema é agravado mais ainda nos períodos chuvosos. Para lutar por uma qualidade de serviço melhor criei o projeto Shuvisco.
@@ -11,6 +13,6 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 
 ## FAQ
 
-1. **Como o teste de conexão é realizado?** Uma vez por minuto é realizada uma tentativa de conexão ao servidos de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
+1. **Como o teste de conexão é realizado?** Uma vez por minuto é realizada uma tentativa de conexão ao servidor de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
 
 2. **A minha internet vai ficar mais lenta com estes testes?** Não. O teste de conexão foi pensado objetivando o menor consumo possível da sua conexão com a internet, sendo assim, este teste não deve influenciar na sua conexão.
