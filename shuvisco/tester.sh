@@ -11,7 +11,7 @@ fi
 # Getting the timestamp
 timestamp=$(date +%s)
 # Testing the connection
-wget -q --spider http://google.com
+ping 1.1.1.1 -c 1
 resultado=$?
 echo '$resultado; $timestamp' >> /root/shuvisco/log.csv
 
