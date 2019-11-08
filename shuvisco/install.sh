@@ -21,7 +21,7 @@ chmod +x /etc/init.d/serveo
 # Adicionando scripts ao crontab
 chmod +x /root/shuvisco/tester.sh
 chmod +x /root/shuvisco/send.sh
-chmod +x /root/chuvisco/shuvisco.conf
+chmod +x /root/shuvisco/shuvisco.conf
 
 crontab -l > mycron
 echo "* * * * * /root/shuvisco/tester.sh" >> mycron
