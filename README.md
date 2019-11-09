@@ -1,3 +1,4 @@
+
 ![Banana](https://cdn.pixabay.com/photo/2019/04/03/04/47/rainbow-4099502_960_720.jpg)
 
 # Projeto Shuvisco
@@ -16,3 +17,14 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 1. **Como o teste de conexão é realizado?** Uma vez por minuto é realizada uma tentativa de conexão ao servidor de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
 
 2. **A minha internet vai ficar mais lenta com estes testes?** Não. O teste de conexão foi pensado objetivando o menor consumo possível da sua conexão com a internet, sendo assim, este teste não deve influenciar na sua conexão.
+
+3. **Minha provacidade é afetada? Que dados são coletados?** Os testes não afetam a privacidade dos seus dados. Os dados coletados são o estado da sua conexão representado pelos números 1 (sem interenet) e 0 (internet boa), data e hora em que o teste foi realizado. Como na tabela abaixo:
+
+| Estado | Data, Hora, Minuto e Segundos  |
+|--------|---------------|
+| 0      |  1573273877   |
+| 0      |  1573273677   |
+| 1      |  1573273777   |
+| 0      |  1573273987   |
+
+**Observação:**  A informação referente ao relógio é armazenada em um formato especial chamado Unix Timestamp.
