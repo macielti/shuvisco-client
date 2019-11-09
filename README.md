@@ -14,11 +14,11 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 
 ## FAQ
 
-1. **Como o teste de conexão é realizado?** Uma vez por minuto é realizada uma tentativa de conexão ao servidor de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
+1. **Como o teste de conexão é realizado?** É realizada uma tentativa de conexão ao servidor de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
 
 2. **A minha internet vai ficar mais lenta com estes testes?** Não. O teste de conexão foi pensado objetivando o menor consumo possível da sua conexão com a internet, sendo assim, este teste não deve influenciar na sua conexão.
 
-3. **Minha provacidade é afetada? Que dados são coletados?** Os testes não afetam a privacidade dos seus dados. Os dados coletados são o estado da sua conexão representado pelos números 1 (sem interenet) e 0 (internet boa), data e hora em que o teste foi realizado. Como na tabela abaixo:
+3. **Minha provacidade é afetada? Que dados são coletados?** Os testes não afetam a privacidade dos seus dados. Os dados coletados são o estado da sua conexão representado pelos números 1 (sem internet) e 0 (internet boa), data, hora, minuto e segundo em que o teste foi realizado. Como na tabela abaixo:
 
 | Estado | Data, Hora, Minuto e Segundos  |
 |--------|---------------|
@@ -28,3 +28,29 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 | 0      |  1573273987   |
 
 **Observação:**  A informação referente ao relógio é armazenada em um formato especial chamado Unix Timestamp.
+
+## Instalação do Cliente
+
+Primeiramente instale as dependências:
+
+    # opkg update
+    # opkg install autossh
+
+No diretório `/root/` baixe o instalador:
+
+    # wget https://github.com/macielti/shuvisco-client/blob/master/install.run?raw=true
+
+Adicione a permissão de execução ao instalador:
+
+    # chmod +x install.run
+
+Execute o instalador (você precisa executar o instalador no diretório `/root/`)
+
+    # ./install.run
+
+A execução do instalador vai gerar um arquivo de configuração de acesso a API do servidor no diretório `/etc/shuvisco.conf`. Você precisa configurar as suas credenciais de acesso, a primeira é o `SERVEO` que é o sudomínio de acesso remoto ao roteador, o segundo é o `ROUTER_ID` que é o código identificador dos registros do roteador no banco de dados. Sendo assim, adicione as seguintes duas linhas de configuração no final do arquivo `/etc/shuvisco.conf`. Preencha os valores removendo os sinais `<>`:
+
+    SERVEO="<sudomínio de acesso remoto ao roteador>"
+    ROUTER_ID="<código identificador dos registros do roteador no banco de dados>"
+
+O último passo é a reinicialização do roteador para que as alterações façam efeito.
