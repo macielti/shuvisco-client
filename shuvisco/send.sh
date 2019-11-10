@@ -1,5 +1,5 @@
 # Load configs
-./shuvisco.conf
+/etc/shuvisco.conf
 
 # Getting MAC address
 mac=$(cat /sys/class/net/eth0/address)
