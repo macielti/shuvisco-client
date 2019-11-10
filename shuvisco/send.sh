@@ -12,7 +12,7 @@ then
 fi
 
 # Sending data to server
-curl -d "router_id=$ROUTER_ID&mac=$mac&logs=$logs" -X POST $POST_LOGS_URL"/log/"
+curl -d "router_id=$ROUTER_ID&mac=$mac&logs=$logs" -X POST "http://$SERVER/log/"
 # Exceptions
 if [ $? -ne 0 ]
 then

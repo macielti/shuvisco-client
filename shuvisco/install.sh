@@ -6,17 +6,17 @@ echo " "
 ### LOGIC ####
 
 # Arquivo de configuracao do cliente
-url='"POST_LOGS_URL="ec2-18-229-150-184.sa-east-1.compute.amazonaws.com"' 
+server='"SERVER="ec2-18-229-150-184.sa-east-1.compute.amazonaws.com"' 
 # Verificar se o arquivo de configuracao ja existe
 cat /etc/shuvisco.conf
 if [ $? -ne 0 ]
 then
     # Arquivo ainda nao existe 
-    echo $url >> /etc/shuvisco.conf
+    echo $server >> /etc/shuvisco.conf
     chmod +x /etc/shuvisco.conf
 else
     # Arquivo ja existe
-    sed -i "/POST_LOGS_URL/c\\$url" /etc/serveo.conf
+    sed -i "/SERVER/c\\$server" /etc/serveo.conf
 fi
 
 # Mover o script de inicializacao do Serveo:
@@ -35,19 +35,20 @@ chmod +x /root/shuvisco/shuvisco.conf
 
 crontab -l > mycron
 # Verificando se ja existe algo no crontab referene ao shuvisco
-grep -i "arroz" install.sh
+grep -i "shuvisco" install.sh
 if [ $? -ne 0 ]
 then
     # Nenhum rastro de versao anterior instalada
     echo "* * * * * /root/shuvisco/tester.sh" >> mycron
     echo "00 00 * * * /root/shuvisco/send.sh" >> mycron
-    crontab mycron
-    rm mycron
 else
     # Vestigios encontrados
     sed -i "/shuvisco/c\\* * * * * /root/shuvisco/tester.sh" mycron
     sed -i "/shuvisco/c\\00 00 * * * /root/shuvisco/send.sh" mycron
 fi
+
+crontab mycron
+rm mycron
 
 # sudo makeself --notemp shuvisco/ install.run "Extracting files..." ./install.sh
 
