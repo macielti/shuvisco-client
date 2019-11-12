@@ -7,6 +7,7 @@ echo " "
 
 # Arquivo de configuracao do cliente
 server="SERVER=\"ec2-18-229-150-184.sa-east-1.compute.amazonaws.com\"" 
+#server="SERVER=\"192.168.1.106:8080\""
 # Verificar se o arquivo de configuracao ja existe
 cat /etc/shuvisco.conf
 if [ $? -ne 0 ]

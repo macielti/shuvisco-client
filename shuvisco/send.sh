@@ -1,5 +1,5 @@
 # Load configs
-/etc/shuvisco.conf
+. /etc/shuvisco.conf
 
 # Getting MAC address
 mac=$(cat /sys/class/net/eth0/address)
@@ -12,15 +12,19 @@ then
 fi
 
 # Sending data to server
-curl -d "router_id=$ROUTER_ID&mac=$mac&logs=$logs" -X POST "http://$SERVER/log/"
-# Exceptions
+wget --post-data="router_id=$ROUTER_ID&mac=$mac&logs=$logs" "http://$SERVER/log/" -O log.response
+# Verify the success of the operation
+grep -i "success" log.response
 if [ $? -ne 0 ]
 then
-    exit 1
+    # if not success
+    rm log.response
+    exit 0
+else
+    # if is all ok
+    rm log.csv
+    rm log.response
 fi
-
-# Remove file after posted
-rm log.csv
 
 exit 0
 
