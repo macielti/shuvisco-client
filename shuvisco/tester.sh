@@ -11,8 +11,7 @@ fi
 # Getting the timestamp
 timestamp=$(date +%s)
 # Testing the connection
-ping 1.1.1.1 -c 1
-if [ $? -ne 0 ]
+if [ $(ping -q 1.1.1.1 -w 60 | awk -F" " '/transmitted,/{print $4}') -lt 42 ]
 then
     echo "1,$timestamp" >> /root/shuvisco/log.csv
 else
@@ -20,4 +19,3 @@ else
 fi
 
 exit 0
-
