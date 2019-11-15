@@ -11,11 +11,17 @@ fi
 # Getting the timestamp
 timestamp=$(date +%s)
 # Testing the connection
-if [ $(ping -q 1.1.1.1 -w 60 | awk -F" " '/transmitted,/{print $4}') -lt 42 ]
+ping_result=$(ping -q 1.1.1.1 -w 60)
+
+# Extract number of sended packages
+n_sended=$(echo "$ping_result" | awk -F' ' '/transmitted,/{print $1}')
+n_good_packages=$(echo "$ping_result" | awk -F' ' '/transmitted,/{print $4}')
+
+if [ $good_packages -lt 42 ]
 then
-    echo "1,$timestamp" >> /root/shuvisco/log.csv
+    echo "$timestamp,1,$n_sended,$n_good_packages" >> /root/shuvisco/log.csv
 else
-    echo "0,$timestamp" >> /root/shuvisco/log.csv
+    echo "$timestamp,0,$n_sended,$n_good_packages" >> /root/shuvisco/log.csv
 fi
 
 exit 0
