@@ -20,12 +20,12 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 
 3. **Minha provacidade é afetada? Que dados são coletados?** Os testes não afetam a privacidade dos seus dados. Os dados coletados são o estado da sua conexão representado pelos números 1 (sem internet) e 0 (internet boa), data, hora, minuto e segundo em que o teste foi realizado. Como na tabela abaixo:
 
-| Estado | Data, Hora, Minuto e Segundos  |
-|--------|---------------|
-| 0      |  1573273877   |
-| 0      |  1573273677   |
-| 1      |  1573273777   |
-| 0      |  1573273987   |
+| Data, Hora, Minuto e Segundos | Estado da Internet | Número de Pacotes Enviados | Número de Pacotes Bem Sucedidos | Servidor de Ping |
+|-------------------------------|--------------------|----------------------------|---------------------------------|------------------|
+| 1573273877                    | 1                  | 60                         | 30                              | 1.1.1.1          |
+| 1573273677                    | 0                  | 60                         | 48                              | 1.1.1.1          |
+| 1573273777                    | 1                  | 60                         | 25                              | 1.1.1.1          |
+| 1573273987                    | 0                  | 60                         | 59                              | 1.1.1.1          |
 
 **Observação:**  A informação referente ao relógio é armazenada em um formato especial chamado Unix Timestamp.
 
@@ -50,7 +50,10 @@ Execute o instalador (você precisa executar o instalador no diretório `/root/`
 
 A execução do instalador vai gerar um arquivo de configuração de acesso a API do servidor no diretório `/etc/shuvisco.conf`. Você precisa configurar as suas credenciais de acesso, a primeira é o `SERVEO` que é o sudomínio de acesso remoto ao roteador, o segundo é o `ROUTER_ID` que é o código identificador dos registros do roteador no banco de dados. Sendo assim, adicione as seguintes duas linhas de configuração no final do arquivo `/etc/shuvisco.conf`. Preencha os valores removendo os sinais `<>`:
 
+**Observação**: A funcionalidade de acesso remoto é opcional e é destinada a terceirização do gerenciamento do roteador, possibilitando a troca de senhas por parte de provedores sem a necessidade de gastos com a deslocamento de técnicos. Caso não deseje esta funcionalidade, basta não adicionar a linha de configuração referente ao 'SERVEO'.
+
     SERVEO="<sudomínio de acesso remoto ao roteador>"
     ROUTER_ID="<código identificador dos registros do roteador no banco de dados>"
 
 O último passo é a reinicialização do roteador para que as alterações façam efeito.
+

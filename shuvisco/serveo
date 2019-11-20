@@ -4,8 +4,18 @@ START=99
 
 start() {
     . /etc/shuvisco.conf
-    echo "Starting serveo service..."
-    /usr/sbin/autossh  -M 22 -y -R $SERVEO:22:localhost:22 serveo.net < /dev/ptmx &
+
+    # verify for remote option
+    grep -i "$SOFTWARE_CLIENT_VERION" /etc/shuvisco.conf
+    if [ $? -ne 0 ]
+    then
+        echo "Not starting serveo service..."
+        echo "Ghost Service..."
+    else
+        echo "Starting serveo service..."
+        /usr/sbin/autossh  -M 22 -y -R $SERVEO:22:localhost:22 serveo.net < /dev/ptmx &
+    fi
+    
 }
 
 stop() {
