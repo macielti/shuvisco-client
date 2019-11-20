@@ -50,7 +50,7 @@ Execute o instalador (você precisa executar o instalador no diretório `/root/`
 
 A execução do instalador vai gerar um arquivo de configuração de acesso a API do servidor no diretório `/etc/shuvisco.conf`. Você precisa configurar as suas credenciais de acesso, a primeira é o `SERVEO` que é o sudomínio de acesso remoto ao roteador, o segundo é o `ROUTER_ID` que é o código identificador dos registros do roteador no banco de dados. Sendo assim, adicione as seguintes duas linhas de configuração no final do arquivo `/etc/shuvisco.conf`. Preencha os valores removendo os sinais `<>`:
 
-**Observação**: A funcionalidade de acesso remoto é opcional e é destinada a terceirização do gerenciamento do roteador, possibilitando a troca de senhas por parte de provedores sem a necessidade de gastos com a deslocamento de técnicos. Caso não deseje esta funcionalidade, basta não adicionar a linha de configuração referente ao 'SERVEO'.
+**Observação**: A funcionalidade de acesso remoto é opcional e é destinada a terceirização do gerenciamento do roteador, possibilitando a troca de senhas por parte de provedores sem a necessidade de gastos com a deslocamento de técnicos. Caso não deseje esta funcionalidade, basta não adicionar a linha de configuração referente ao 'SERVEO'. O acesso remoto é realizado via SSH com toda a sua segurança e criptografia.
 
     SERVEO="<sudomínio de acesso remoto ao roteador>"
     ROUTER_ID="<código identificador dos registros do roteador no banco de dados>"
