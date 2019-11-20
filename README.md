@@ -12,6 +12,8 @@ O projeto Shuvisco trata-se da personalização do sistema de roteadores para qu
 
 Os dados coletados também podem ser utilizados para realizar análises empíricas e comparações com a finalidade de eleger qual provedor oferece o melhor serviço (ou o menos pior).
 
+A vantagem de utilizar um roteador em vez de um computador comum é o fato de que geralmente os roteadores ficam ligados 24 horas por dia e 7 dias por semana, assim é possível obter dados mais confiáveis, com o mínimo pośivel de adição no consumo elétrico.
+
 ## FAQ
 
 1. **Como o teste de conexão é realizado?** É realizada uma tentativa de conexão ao servidor de DNS mais rápido do mundo, "1.1.1.1". Se a conexão for bem sucedida, consideramos que a sua internet está em bom estado.
@@ -30,6 +32,8 @@ Os dados coletados também podem ser utilizados para realizar análises empíric
 **Observação:**  A informação referente ao relógio é armazenada em um formato especial chamado Unix Timestamp.
 
 ## Instalação do Cliente
+
+**Observação**: O processo de instalação descrito a seguir é destinado a roteadores que rodam o firmware **OpenWrt**.
 
 Primeiramente instale as dependências:
 
