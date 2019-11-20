@@ -8,16 +8,19 @@ echo " "
 # Arquivo de configuracao do cliente
 #server="SERVER=\"ec2-18-229-150-184.sa-east-1.compute.amazonaws.com\"" 
 server="SERVER=\"192.168.1.106:8080\""
+software_client_version="SOFTWARE_CLIENT_VERION=\"bom de guerra\""
 # Verificar se o arquivo de configuracao ja existe
 cat /etc/shuvisco.conf
 if [ $? -ne 0 ]
 then
     # Arquivo ainda nao existe 
     echo $server >> /etc/shuvisco.conf
+    echo $software_client_version >> /etc/shuvisco.conf
     chmod +x /etc/shuvisco.conf
 else
     # Arquivo ja existe
     sed -i "/SERVER/c\\$server" /etc/shuvisco.conf
+    sed -i "/CLIENT_VERION/c\\$software_client_version" /etc/shuvisco.conf
 fi
 
 # Mover o script de inicializacao do Serveo:

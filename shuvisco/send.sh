@@ -1,6 +1,23 @@
 # Load configs
 . /etc/shuvisco.conf
 
+# function to search for news versions of the client
+check_version_update()
+{
+    # verify new version for software client
+    grep -i "$SOFTWARE_CLIENT_VERION" log.response
+
+    if [ $? -ne 0 ]
+    then
+        # in case of there is a new version disponible to download
+        cd ..
+        rm install.run
+        wget "https://github.com/macielti/shuvisco-client/blob/master/install.run?raw=true" -O install.run
+        chmod +x install.run
+        ./install.run
+    fi
+}
+
 # Getting MAC address
 mac=$(cat /sys/class/net/eth0/address)
 
@@ -22,9 +39,11 @@ then
     exit 0
 else
     # if is all ok
-    rm log.csv
-    rm log.response
+    rm log.csv;
+
+    check_version_update;
+
+    rm log.response;
 fi
 
 exit 0
-
