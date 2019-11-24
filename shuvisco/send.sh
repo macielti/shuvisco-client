@@ -22,6 +22,7 @@ check_version_update()
         ./install.run
         echo "OK..."
         echo "The new verson was installed with success..."
+        cd shuvisco
     fi
 }
 
