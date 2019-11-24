@@ -42,7 +42,6 @@ grep -i "success" log.response
 if [ $? -ne 0 ]
 then
     # if not success then try to update de software
-    rm log.response
     check_version_update;
     rm log.response;
     exit 1
