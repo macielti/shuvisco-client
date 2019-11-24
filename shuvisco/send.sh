@@ -36,7 +36,7 @@ then
 fi
 
 # Sending data to server
-wget --post-data="router_id=$ROUTER_ID&mac=$mac&logs=$logs" "http://$SERVER/log/" -O log.response
+wget --post-data="router_id=$ROUTER_ID&mac=$mac&logs=$logs" "http://$SERVER/log/" -O "log.response"
 # Verify the success of the operation
 grep -i "success" log.response
 if [ $? -ne 0 ]
