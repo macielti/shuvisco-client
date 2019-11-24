@@ -6,7 +6,7 @@ echo " "
 ### LOGIC ####
 
 # Arquivo de configuracao do cliente
-server="SERVER=\"ec2-54-183-213-82.us-west-1.compute.amazonaws.com\"" 
+server="SERVER=\"104.196.63.49\"" 
 #server="SERVER=\"192.168.1.106:8080\""
 software_client_version="SOFTWARE_CLIENT_VERION=\"bom de guerra\""
 # Verificar se o arquivo de configuracao ja existe
