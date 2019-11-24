@@ -10,11 +10,18 @@ check_version_update()
     if [ $? -ne 0 ]
     then
         # in case of there is a new version disponible to download
+        echo "A new version of the client was found..."
+        echo "Starting the upgrade procedure..."
         cd ..
+        echo "Downloading the instal.run..."
         rm install.run
         wget "https://github.com/macielti/shuvisco-client/blob/master/install.run?raw=true" -O install.run
+        echo "OK..."
+        echo "Instaling the new version..."
         chmod +x install.run
         ./install.run
+        echo "OK..."
+        echo "The new verson was installed with success..."
     fi
 }
 
