@@ -1,4 +1,3 @@
-
 ![Banana](https://cdn.pixabay.com/photo/2019/04/03/04/47/rainbow-4099502_960_720.jpg)
 
 # Projeto Shuvisco
@@ -38,11 +37,11 @@ A vantagem de utilizar um roteador em vez de um computador comum é o fato de qu
 Primeiramente instale as dependências:
 
     # opkg update
-    # opkg install autossh
+    # opkg install autossh curl
 
 No diretório `/root/` baixe o instalador:
 
-    # wget https://github.com/macielti/shuvisco-client/blob/master/install.run?raw=true
+    # curl -L -o install.run https://github.com/macielti/shuvisco-client/blob/master/install.run?raw=true
 
 Adicione a permissão de execução ao instalador:
 
@@ -60,4 +59,3 @@ A execução do instalador vai gerar um arquivo de configuração de acesso a AP
     ROUTER_ID="<código identificador dos registros do roteador no banco de dados>"
 
 O último passo é a reinicialização do roteador para que as alterações façam efeito.
-

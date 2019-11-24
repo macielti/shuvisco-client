@@ -41,9 +41,11 @@ wget --post-data="router_id=$ROUTER_ID&mac=$mac&logs=$logs" "http://$SERVER/log/
 grep -i "success" log.response
 if [ $? -ne 0 ]
 then
-    # if not success
+    # if not success then try to update de software
     rm log.response
-    exit 0
+    check_version_update;
+    rm log.response;
+    exit 1
 else
     # if is all ok
     rm log.csv;
