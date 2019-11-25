@@ -37,7 +37,7 @@ then
 fi
 
 # Sending data to server
-curl -L -d '{"router_id": ""$ROUTER_ID"", "mac":""$mac"", "logs":""$logs""}' -H "Content-Type: application/json" -X POST "http://$SERVER/log" -o log.response 
+curl -L -d "router_id=$ROUTER_ID&mac=$mac&logs=$logs" -X POST "http://$SERVER/log" -o log.response 
 # Verify the success of the operation
 grep -i "success" log.response
 if [ $? -ne 0 ]
