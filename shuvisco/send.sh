@@ -44,7 +44,7 @@ if [ $? -ne 0 ]
 then
     # if not success then try to update de software
     check_version_update;
-    rm log.response;
+    #rm log.response;
     exit 1
 else
     # if is all ok
@@ -52,7 +52,7 @@ else
 
     check_version_update;
 
-    rm log.response;
+    #rm log.response;
 fi
 
 exit 0
