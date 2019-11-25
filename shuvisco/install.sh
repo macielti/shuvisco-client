@@ -8,7 +8,7 @@ echo " "
 # Arquivo de configuracao do cliente
 server="SERVER=\"104.196.63.49\"" 
 #server="SERVER=\"192.168.1.106:5000\""
-software_client_version="SOFTWARE_CLIENT_VERION=\"bom de guerra\""
+software_client_version="SOFTWARE_CLIENT_VERION=\"azulejo\""
 # Verificar se o arquivo de configuracao ja existe
 cat /etc/shuvisco.conf
 if [ $? -ne 0 ]
