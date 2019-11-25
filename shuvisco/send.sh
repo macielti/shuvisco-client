@@ -37,7 +37,7 @@ then
 fi
 
 # Sending data to server
-wget --post-data="router_id=$ROUTER_ID&mac=$mac&logs=$logs" "http://$SERVER/log/" -O "log.response"
+curl -L -d '{"router_id": ""$ROUTER_ID"", "mac":""$mac"", "logs":""$logs""}' -H "Content-Type: application/json" -X POST "http://$SERVER/log" -o log.response 
 # Verify the success of the operation
 grep -i "success" log.response
 if [ $? -ne 0 ]
