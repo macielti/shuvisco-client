@@ -6,9 +6,9 @@ echo " "
 ### LOGIC ####
 
 # Arquivo de configuracao do cliente
-server="SERVER=\"192.168.1.106\"" 
+server="SERVER=\"35.232.129.67\"" 
 #server="SERVER=\"192.168.1.106:5000\""
-software_client_version="SOFTWARE_CLIENT_VERION=\"azulejo\""
+software_client_version="SOFTWARE_CLIENT_VERION=\"abobora\""
 # Verificar se o arquivo de configuracao ja existe
 cat /etc/shuvisco.conf
 if [ $? -ne 0 ]
