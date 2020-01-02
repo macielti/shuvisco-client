@@ -47,7 +47,7 @@ then
 else
     # Vestigios encontrados
     sed -i "/tester.sh/c\\* * * * * /root/shuvisco/tester.sh" mycron
-    sed -i "/send.sh/c\\00 00 * * * /root/shuvisco/send.sh" mycron
+    sed -i "/send.sh/c\\$(( ( RANDOM % 59 ) + 1)) $(( ( RANDOM % 23 ) + 1 )) * * * /root/shuvisco/send.sh" mycron
 fi
 
 crontab mycron
