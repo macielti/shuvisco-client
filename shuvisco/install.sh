@@ -43,7 +43,7 @@ if [ $? -ne 0 ]
 then
     # Nenhum rastro de versao anterior instalada
     echo "* * * * * /root/shuvisco/tester.sh" >> mycron
-    echo "00 00 * * * /root/shuvisco/send.sh" >> mycron
+    echo "$(( ( RANDOM % 59 ) + 1)) $(( ( RANDOM % 23 ) + 1 )) * * * /root/shuvisco/send.sh" >> mycron
 else
     # Vestigios encontrados
     sed -i "/tester.sh/c\\* * * * * /root/shuvisco/tester.sh" mycron
