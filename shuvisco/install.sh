@@ -43,11 +43,11 @@ if [ $? -ne 0 ]
 then
     # Nenhum rastro de versao anterior instalada
     echo "* * * * * /root/shuvisco/tester.sh" >> mycron
-    echo "$(( ( RANDOM % 59 ) + 1)) $(( ( RANDOM % 23 ) + 1 )) * * * /root/shuvisco/send.sh" >> mycron
+    echo "0$(head -30 /dev/urandom | tr -dc "0123456789" | head -c1) 0$(head -30 /dev/urandom | tr -dc "0123456789" | head -c1) * * * /root/shuvisco/send.sh" >> mycron
 else
     # Vestigios encontrados
     sed -i "/tester.sh/c\\* * * * * /root/shuvisco/tester.sh" mycron
-    sed -i "/send.sh/c\\$(( ( RANDOM % 59 ) + 1)) $(( ( RANDOM % 23 ) + 1 )) * * * /root/shuvisco/send.sh" mycron
+    sed -i "/send.sh/c\\0$(head -30 /dev/urandom | tr -dc "0123456789" | head -c1) 0$(head -30 /dev/urandom | tr -dc "0123456789" | head -c1) * * * /root/shuvisco/send.sh" mycron
 fi
 
 crontab mycron
@@ -56,4 +56,3 @@ rm mycron
 # sudo makeself --notemp shuvisco/ install.run "Extracting files..." ./install.sh
 
 exit 0
-
